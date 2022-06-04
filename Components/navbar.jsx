@@ -9,11 +9,11 @@ function Navbar({linkStyles, Logo}) {
             <Image src={Logo} width={80} height={60} className=''/>
         </div>
         <div className='links__container flex justify-end w-[1100px] z-50 '>
-            <Link href="" ><a className={linkStyles} >Home</a></Link>
-            <Link href=""><a className={linkStyles}>Crypto</a></Link>
-            <Link href=""><a className={linkStyles}>Blog</a></Link>
-            <Link href=""><a className={linkStyles}>Contact</a></Link>
-        </div>
+            <Link href="/" ><a className={linkStyles} >Home</a></Link>
+            <Link href="/cryptocurrencies"><a className={linkStyles}>Crypto</a></Link>
+            <Link href="/blog"><a className={linkStyles}>Blog</a></Link>
+            <Link href="/contact"><a className={linkStyles}>Contact</a></Link>
+        </div>  
     </div>
   )
 }
