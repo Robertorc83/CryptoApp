@@ -41,16 +41,18 @@ const CoinPage = ({coin, prices}) => {
      <div className="bg-[url('../public/Vector.png')] w-[100vw] h-[300px] text-white text-center ">
         <h1 className='font-jura pt-[130px] text-[70px]'>{coin?.name}</h1>
     </div>
-    <div className="grid grid-cols-3 mt-[100px] m-0 ">
-      <div className="lg:w-[75%] bg-[url('../public/Vector.png')] ml-[30px] p-10 mt-[-50px] rounded-xl">
+    <div className="grid grid-rows-2 lg:grid-cols-3 mt-[100px] m-0 flex justify-items-center lg:h-[650px]">
+      <div className="bg-[url('../public/Vector.png')] lg:ml-[30px] lg:h-[550px] p-10 mt-[-50px] w-[300px] rounded-xl md:w-[500px] lg:w-[75%]  ">
+        <div className='flex justify-center'>
         <img src={coin?.image.large} alt={coin?.name} />
+        </div>
         <h4 className='text-white text-center mt-5 font-jura'>{parse(coin?.description.en.split(". ")[0])}.</h4>
         <h5 className='text-white text-center mt-2  font-jura'>Rank {coin?.market_cap_rank}</h5>
         <h5 className='text-white text-center mt-2  font-jura'>Current Price {symbol}{" "}{ coin?.market_data.current_price[currency.toLowerCase()] }</h5>
       </div>
-      <div className= "flex justify-center w-full col-span-2 p-0" >
+      <div className= "flex justify-center w-full lg:col-span-2 p-0" >
         <div>
-          <div className='w-[800px]' >
+          <div className='w-[380px] h-[420px] mt-[50px] md:w-[700px] lg:mt-0 lg:w-[700px] lg:h-[450px] xl:w-[800px]' >
             <Line
                 data={{
                   labels: historicData.map((coin) => {
@@ -71,12 +73,12 @@ const CoinPage = ({coin, prices}) => {
                   ],
                 }}
                 options={{
-
+                  maintainAspectRatio: false,
                   scales: {
                             x: {
                                 ticks: {
                                     font: {
-                                        size: 12,
+                                        size: 10,
                                         family: 'Jura',
                                     }
                                 }
@@ -84,7 +86,7 @@ const CoinPage = ({coin, prices}) => {
                             y:{
                               ticks:{
                                 font: {
-                                  size: 12,
+                                  size: 10,
                                   family: 'Jura',
                                 }
                               }

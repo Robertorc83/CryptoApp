@@ -40,3 +40,20 @@
 .pagination>li:last-child>span {
     border-radius: unset
 }
+
+@media only screen and (max-width: 600px) {
+
+    .pagination {
+            margin-top: 5px;
+            margin-left: 350px;
+            display: flex;
+            list-style: none;
+            outline: none;
+        }
+    .pagination>li>a {
+        border: 1px solid #3f0357;
+        padding: 3px 12px;
+        outline: none;
+        cursor: pointer;
+    }
+}

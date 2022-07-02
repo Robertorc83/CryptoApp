@@ -10,19 +10,21 @@ export default function Blog ({posts})  {
   return (
     <>
     <Navbar linkStyles={linkStyle} Logo={LogoW}/>
-    <div className="bg-[url('../public/Vector.png')] w-[100vw] h-[300px] text-white text-center ">
+    <div className="bg-[url('../public/Vector.png')] h-[300px] text-white text-center ">
         <h1 className='font-jura pt-[130px] text-[120px]'>Blog</h1>
     </div>
-    <div className=' w-[100vw] h-[600px]'>
+    <div className=' '>
       <div className="text-center mt-[20px]">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-900 via-pink-700 to-amber-300 text-[50px] font-jura block ">Categories</span>
-        <div className='px-[30px] inline-flex'>
+        <div className='gap-x-[30px] inline-flex grid grid-rows-3 lg:grid-cols-3 justify-items-center  lg:h-[750px]' >
           {posts.map((post,index) => <Card post={post.node} key={index}/>)}
           
         </div>
       </div>
     </div>
-    <Footer/>
+    <div className=''>
+      <Footer/>
+    </div>
     </>
   )
 }

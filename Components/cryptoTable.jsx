@@ -26,8 +26,6 @@ function CryptoTable() {
     const fetchCoins = async () => {
     setLoading(true);
     const { data } = await axios.get(CoinList(currency));
-    console.log(data);
-
     setCoins(data);
     setLoading(false);
   };
@@ -39,12 +37,8 @@ function CryptoTable() {
 
     const handlePageClick = (value) => 
             {
-              console.log(value)
-              console.log(page)
               setPage(value.selected + 1);
             window.scroll(0, 450);
-            console.log(value);
-            console.log(page)
           }
 
     const handleSearch = () => {
@@ -56,7 +50,7 @@ function CryptoTable() {
   };
   return (
     <>
-    <div className=" flex justify-center mt-[50px] font-jura">
+    <div className=" md:static w-full flex justify-center mt-[50px] font-jura">
     <table className="table-auto w-[100%] "  >
         <thead className="text-center " >
             <tr className="text-center ">
@@ -72,10 +66,10 @@ function CryptoTable() {
                     return (
             <tr 
             onClick={() => router.push(`/coins/${row.id}`)} key={row.name} className="">
-            <td className="text-center pl-5 justify-center">
-              <img src={row?.image} alt={row.name} height="50" className="flex w-[40px] pt-[5px] ml-[30px] " />
+            <td className=" flex text-center pl-5 justify-center">
+              <img src={row?.image} alt={row.name} className="flex w-[40px] py-[5px] " />
               <div className="text-center">
-                  <span className="text-center flex ml-[32px]">
+                  <span className="hidden md:block text-center flex pl-3 mt-5">
                       {row.symbol}
                   </span>
               </div>
@@ -102,12 +96,12 @@ function CryptoTable() {
         </tbody>
     </table>
     </div>
-    <div className="flex justify-center mt-[30px]">
+    <div className="flex justify-center w-[40px] md:w-full mt-[30px]">
       <ReactPaginate
       onPageChange={handlePageClick}
       pageCount={(handleSearch()?.length / 10).toFixed(0)}
-      previousLabel="< previous"
-      nextLabel="next >"
+      previousLabel="< "
+      nextLabel=" >"
       breakLabel="..."
       breakClassName={styles.break}
       containerClassName={styles.pagination}

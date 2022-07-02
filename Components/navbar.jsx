@@ -4,15 +4,57 @@ import Link from 'next/link'
 
 function Navbar({linkStyles, Logo}) {
   return (
-    <div className='flex absolute w-[100vw]'>
-        <div className='logo__container mt-5 ml-5'>
-            <Image src={Logo} width={80} height={60} className=''/>
+    <div className='absolute md:w-[93%] xl:w-[95%]'>
+        <div className=' mt-5 ml-5 w-[50px] md:w-[60px] lg:w-[100px]'>
+            <Link href="/"><Image src={Logo}/></Link>
         </div>
-        <div className='links__container flex justify-end w-[1100px] z-50 '>
+        <div className='hidden md:flex mt-[-40px] flex-row justify-end '>
+            <div>
             <Link href="/" ><a className={linkStyles} >Home</a></Link>
+            </div>
+            <div>
             <Link href="/cryptocurrencies"><a className={linkStyles}>Crypto</a></Link>
+            </div>
+            <div>
             <Link href="/blog"><a className={linkStyles}>Blog</a></Link>
+            </div>
+            <div>
             <Link href="/contact"><a className={linkStyles}>Contact</a></Link>
+            </div>
+        </div>
+        <div class="flex absolute w-screen mt-[-35px] justify-end pr-[20px] lg:hidden">
+          <button id="dropdownBottomButton" data-dropdown-toggle="dropdownBottom" data-dropdown-placement="bottom" className='inline-flex items-center ' type="button">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="#3f0357"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg> 
+          </button>
+          <div id="dropdownBottom" className="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700">
+            <ul className="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownBottomButton">
+              <li>
+                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+              </li>
+              <li>
+                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+              </li>
+              <li>
+                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+              </li>
+              <li>
+                <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+              </li>
+            </ul>
+          </div>
         </div>  
     </div>
   )
